@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Tabla de Puntuaciones{% endblock %}
+
+{% block content %}
+<h1>go posis :v</h1>
+
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Puntuación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>{{ category }}</td>
+                <td>
+                    <input type="number" name="{{ category }}" min="1" max="10" value="{{ scores.get(category, '') }}" required />
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Guardar Puntuaciones</button>
+</form>
+
+<a href="{{ url_for('home') }}">Volver al inicio</a>
+{% endblock %}

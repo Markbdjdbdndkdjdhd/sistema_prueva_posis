@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h1>Bienvenido, {{ session['user_name'] }}!</h1>
+
+<!-- Botón para ver la tabla de puntuaciones -->
+<a href="{{ url_for('scores') }}"><button>Ver Tabla de Puntuaciones</button></a>
+
+<!-- Botón para ver el dashboard -->
+<a href="{{ url_for('dashboard') }}"><button>Ver Dashboard</button></a>
+
+<!-- Botón para salir (logout) -->
+<a href="{{ url_for('logout') }}"><button>Salir</button></a>
+
+{% endblock %}
